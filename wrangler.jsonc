@@ -11,7 +11,7 @@
     {
       "binding": "DB",
       "database_name": "private_messenger",
-      "database_id": "PUT_YOUR_D1_DATABASE_ID_HERE"
+      "database_id": "19422799-11d3-4fc5-ab23-4162ba338e2b"
     }
   ],
   "durable_objects": {
