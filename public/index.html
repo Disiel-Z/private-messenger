@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Private Chat">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Private Chat</title>
+</head>
+<body>
+  <div id="app">
+    <div id="screen-auth" class="screen">
+      <div class="card auth-card">
+        <h1>Private Chat</h1>
+        <p class="muted">Закрытый мессенджер по инвайтам. Только текст, только свои.</p>
+
+        <div class="tabs">
+          <button class="tab active" data-auth-tab="login">Вход</button>
+          <button class="tab" data-auth-tab="register">Регистрация</button>
+        </div>
+
+        <form id="form-login" class="auth-form">
+          <label>
+            <span>Логин</span>
+            <input name="username" autocomplete="username" required>
+          </label>
+          <label>
+            <span>Пароль</span>
+            <input name="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button type="submit">Войти</button>
+        </form>
+
+        <form id="form-register" class="auth-form hidden">
+          <label>
+            <span>Инвайт-код</span>
+            <input name="inviteCode" required>
+          </label>
+          <label>
+            <span>Логин</span>
+            <input name="username" autocomplete="username" required>
+          </label>
+          <label>
+            <span>Имя</span>
+            <input name="displayName" required>
+          </label>
+          <label>
+            <span>Пароль</span>
+            <input name="password" type="password" autocomplete="new-password" required>
+          </label>
+          <button type="submit">Создать аккаунт</button>
+        </form>
+
+        <div id="auth-message" class="message"></div>
+      </div>
+    </div>
+
+    <div id="screen-chat" class="screen hidden">
+      <aside class="sidebar">
+        <div class="sidebar-top">
+          <div>
+            <div class="eyebrow">Вы вошли как</div>
+            <div id="me-display" class="strong"></div>
+          </div>
+          <button id="logout-btn" class="ghost-btn">Выйти</button>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="section-title">Участники</div>
+          <div id="contacts" class="contacts"></div>
+        </div>
+
+        <div id="admin-panel" class="sidebar-section hidden">
+          <div class="section-title">Инвайты</div>
+          <form id="create-invite-form" class="stack-form">
+            <label>
+              <span>Заметка</span>
+              <input name="note" placeholder="Например: для Андрея">
+            </label>
+            <label>
+              <span>Сколько регистраций</span>
+              <input name="maxUses" type="number" min="1" value="1">
+            </label>
+            <button type="submit">Создать инвайт</button>
+          </form>
+          <div id="invites" class="invite-list"></div>
+        </div>
+      </aside>
+
+      <main class="chat-main">
+        <div id="empty-state" class="empty-state">
+          <h2>Выберите участника</h2>
+          <p class="muted">Откройте диалог слева. Сообщения сохраняются, новые приходят в реальном времени.</p>
+        </div>
+
+        <section id="chat-panel" class="hidden full-height">
+          <header class="chat-header">
+            <div>
+              <div id="chat-title" class="chat-title"></div>
+              <div id="chat-status" class="chat-status">Не в сети</div>
+            </div>
+            <button id="enable-push-btn" class="ghost-btn">Включить уведомления</button>
+          </header>
+
+          <div id="messages" class="messages"></div>
+
+          <form id="message-form" class="message-form">
+            <textarea id="message-input" rows="1" maxlength="4000" placeholder="Введите сообщение"></textarea>
+            <button type="submit">Отправить</button>
+          </form>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

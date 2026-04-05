@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "private-messenger-pwa",
+  "main": "src/index.js",
+  "compatibility_date": "2026-04-04",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "private_messenger",
+      "database_id": "PUT_YOUR_D1_DATABASE_ID_HERE"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT_ROOM",
+        "class_name": "ChatRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "ChatRoom"
+      ]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Private Chat",
+  "short_name": "Private Chat",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09111f",
+  "theme_color": "#0f172a",
+  "description": "Закрытый PWA-мессенджер по инвайтам",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
